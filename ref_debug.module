@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Collected funtions for the ref_debug module.
+ */
+
+/**
+ * Implements hook_libraries_info().
+ */
+function ref_debug_libraries_info() {
+  $libraries = array();
+  $libraries['php-ref'] = array(
+    'name' => 'PHP-ref',
+    'vendor url' => 'https://github.com/digitalnature/php-ref',
+    'download url' => 'https://github.com/digitalnature/php-ref/zipball/master',
+    'version callback' => 'ref_debug_short_circuit_version',
+    'files' => array(
+      'js' => array(
+        'ref.js',
+      ),
+      'php' => array(
+        'ref.php',
+      ),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Just returns TRUE for version check, because we dont need to check version.
+ */
+function ref_debug_short_circuit_version() {
+  return TRUE;
+}
+
+/**
+ *  Implements hook_boot().
+ */
+function ref_debug_boot() {
+  // Nedd to get functions in common.inc to get libraries_get_path yto work
+  require_once DRUPAL_ROOT . '/includes/common.inc';
+  drupal_load('module', 'libraries');
+  if (function_exists('libraries_get_path') === TRUE) {
+    $phpref_path = libraries_get_path('php-ref');
+    if (!empty($phpref_path) && file_exists($phpref_path .= '/ref.php')) {
+      include_once $phpref_path;
+    }
+  }
+  else {
+     drupal_set_message('Libraries module is missing, it is needed to get PHP
+     ref to work', 'error');
+  }
+}
