@@ -72,7 +72,6 @@ function ref_debug_permission() {
   );
 }
 
-
 /**
  * Implements hook_menu().
  */
@@ -88,6 +87,9 @@ function ref_debug_menu() {
   return $items;
 }
 
+/**
+ * Display the ref debug.
+ */
 function ref_debug_load($type, $object, $name = NULL) {
   r($object);
 }
