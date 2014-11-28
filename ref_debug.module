@@ -81,7 +81,8 @@ function ref_debug_permission() {
  */
 function ref_debug_menu() {
   $items['admin/config/ref'] = array(
-    'title' => 'PHP-ref',
+    'title' => 'Ref debug',
+    'description' => 'Settings for Ref debug.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('ref_debug_admin_settings'),
     'access arguments' => array('administer php-ref debug'),
