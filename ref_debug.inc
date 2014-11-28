@@ -29,7 +29,7 @@ function ref_debug_load($type, $object, $name = NULL) {
 }
 
 /**
- * Settings form for ref debug
+ * Settings form for ref debug.
  */
 function ref_debug_admin_settings() {
   $form = array();

@@ -85,7 +85,6 @@ function ref_debug_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('ref_debug_admin_settings'),
     'access arguments' => array('administer php-ref debug'),
-    'weight' => 100,
     'file' => 'ref_debug.inc',
     'type' => MENU_NORMAL_ITEM,
   );
@@ -96,7 +95,7 @@ function ref_debug_menu() {
     'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-    'weight' => 100,
+    'weight' => 90,
     'file' => 'ref_debug.inc',
   );
   $items['user/%user/ref'] = array(
@@ -106,7 +105,7 @@ function ref_debug_menu() {
     'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-    'weight' => 100,
+    'weight' => 90,
     'file' => 'ref_debug.inc',
   );
   $items['taxonomy/term/%taxonomy_term/ref'] = array(
@@ -116,7 +115,7 @@ function ref_debug_menu() {
     'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-    'weight' => 100,
+    'weight' => 90,
     'file' => 'ref_debug.inc',
   );
   $items['comment/%comment/ref'] = array(
@@ -126,7 +125,7 @@ function ref_debug_menu() {
     'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-    'weight' => 100,
+    'weight' => 90,
     'file' => 'ref_debug.inc',
   );
   return $items;
