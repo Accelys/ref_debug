@@ -71,3 +71,23 @@ function ref_debug_permission() {
     ),
   );
 }
+
+
+/**
+ * Implements hook_menu().
+ */
+function ref_debug_menu() {
+  $items['node/%node/ref'] = array(
+    'title' => 'Ref',
+    'page callback' => 'ref_debug_load',
+    'page arguments' => array('node', 1),
+    'access arguments' => array('access REF debug info'),
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+  return $items;
+}
+
+function ref_debug_load($type, $object, $name = NULL) {
+  r($object);
+}
