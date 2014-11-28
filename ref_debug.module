@@ -46,7 +46,7 @@ function ref_debug_boot() {
   drupal_load('module', 'libraries');
   // Ensure this module is properly loaded.
   drupal_load('module', 'ref_debug');
-  if (user_access('access REF debug info') == TRUE) {
+  if (user_access('access php-ref debug info') == TRUE) {
     if (function_exists('libraries_get_path') === TRUE) {
       $phpref_path = libraries_get_path('php-ref');
       if (!empty($phpref_path) && file_exists($phpref_path .= '/ref.php')) {
@@ -65,8 +65,12 @@ function ref_debug_boot() {
  */
 function ref_debug_permission() {
   return array(
-    'access REF debug info' => array(
-      'title' => t('Access REF debug info'),
+    'access php-ref debug info' => array(
+      'title' => t('Access php-ref debug info'),
+      'description' => t('To get the debug info from php-ref.'),
+    ),
+    'administer php-ref debug' => array(
+      'title' => t('Administer REF debug info'),
       'description' => t('To get the debug info from php-ref.'),
     ),
   );
@@ -76,11 +80,20 @@ function ref_debug_permission() {
  * Implements hook_menu().
  */
 function ref_debug_menu() {
+  $items['admin/config/ref'] = array(
+    'title' => 'PHP-ref',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ref_debug_admin_settings'),
+    'access arguments' => array('administer php-ref debug'),
+    'weight' => 100,
+    'file' => 'ref_debug.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
   $items['node/%node/ref'] = array(
     'title' => 'Ref',
     'page callback' => 'ref_debug_load',
     'page arguments' => array('node', 1),
-    'access arguments' => array('access REF debug info'),
+    'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 100,
@@ -90,7 +103,7 @@ function ref_debug_menu() {
     'title' => 'Ref',
     'page callback' => 'ref_debug_load',
     'page arguments' => array('user', 1),
-    'access arguments' => array('access REF debug info'),
+    'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 100,
@@ -100,7 +113,7 @@ function ref_debug_menu() {
     'title' => 'Ref',
     'page callback' => 'ref_debug_load',
     'page arguments' => array('taxonomy_term', 2, 'term'),
-    'access arguments' => array('access REF debug info'),
+    'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 100,
@@ -110,7 +123,7 @@ function ref_debug_menu() {
     'title' => 'Ref',
     'page callback' => 'ref_debug_load',
     'page arguments' => array('comment', 1),
-    'access arguments' => array('access REF debug info'),
+    'access arguments' => array('access php-ref debug info'),
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 100,
