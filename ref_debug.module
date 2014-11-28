@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Collected funtions for the ref_debug module.
+ * Collected functions for the ref_debug module.
  */
 
 /**
@@ -27,7 +27,7 @@ function ref_debug_libraries_info() {
 }
 
 /**
- * Just returns TRUE for version check, because we dont need to check version.
+ * Just returns TRUE for version check, because we don't need to check version.
  */
 function ref_debug_short_circuit_version() {
   return TRUE;
@@ -42,7 +42,7 @@ function ref_debug_boot() {
   // Need to load the user module to get permissions.
   drupal_get_filename('module', 'user', 'modules/user/user.module');
   drupal_load('module', 'user');
-  // Load the libraris module to get functions.
+  // Load the libraries module to get functions.
   drupal_load('module', 'libraries');
   // Ensure this module is properly loaded.
   drupal_load('module', 'ref_debug');
@@ -66,7 +66,7 @@ function ref_debug_boot() {
 function ref_debug_permission() {
   return array(
     'access REF debug info' => array(
-      'title' => t('Access REF degug info'),
+      'title' => t('Access REF debug info'),
       'description' => t('To get the debug info from php-ref.'),
     ),
   );
