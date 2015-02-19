@@ -30,7 +30,7 @@ function ref_debug_libraries_info() {
  * Just returns TRUE for version check, because we don't need to check version.
  */
 function ref_debug_short_circuit_version() {
-  return TRUE;
+  return "installed";
 }
 
 /**

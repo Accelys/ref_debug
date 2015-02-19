@@ -2,7 +2,7 @@
 
 /**
  * @file
- * drush integration for ref debug.
+ * Drush integration for ref debug.
  */
 
 /**
