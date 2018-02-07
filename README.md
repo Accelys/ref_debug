@@ -1,16 +1,27 @@
 # INFO
-Using PHP-ref is a debugger for Drupal 8.
 
+Using PHP-ref is a debugger for Drupal 8.
 
 # INSTALL
 
 By the moment this port is not distributed on Drupal's packagist repository.
+
+Add the following entry to your `composer.json` `repositories` entry:
+
+```json
+{
+    "type": "vcs",
+    "url": "https://github.com/Accelys/ref_debug"
+}
+```
+
+Then run `composer require drupal/ref_debug`
+
 Please refer to this issue (link to be coming.)
 
 # USAGE
+
 Enable module.
-
-
 
 Basic usage from php-ref documentation:
 
@@ -18,7 +29,7 @@ Basic usage from php-ref documentation:
 
 Select _PHP-Ref_ as the default dumper at `/admin/config/development/devel` and calls to `dpm()` and other dump helpers will be using RefDebug.
 
-or 
+_Or_ 
 
 Override the default dumper in your `settings.local.php`:
 
