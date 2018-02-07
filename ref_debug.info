@@ -1,4 +1,0 @@
-name = REF debug
-description = Adding the PHP-ref debugger to Drupal.
-core = 7.x
-dependency[] = libraries;

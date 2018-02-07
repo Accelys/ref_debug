@@ -1,0 +1,17 @@
+{
+  "name": "drupal/ref_debug",
+  "type": "drupal-module",
+  "description": "Using PHP-ref for debugging, using for example r() instead of devels dpm().",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/ref_debug",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/ref_debug",
+    "source": "http://cgit.drupalcode.org/ref_debug"
+  },
+  "require": {
+    "digitalnature/php-ref": "dev-master",
+    "drupal/devel": "~1.0"
+  }
+}

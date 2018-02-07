@@ -1,0 +1,7 @@
+ref_debug:
+  version: VERSION
+  css:
+    theme:
+      css/ref.css: {}
+  js:
+    js/ref.js: {}

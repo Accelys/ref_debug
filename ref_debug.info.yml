@@ -1,0 +1,7 @@
+name: Ref debug
+type: module
+description: Using PHP-ref for debugging, using for example r() instead of devels dpm().
+core: 8.x
+package: Development
+dependencies:
+  - devel
