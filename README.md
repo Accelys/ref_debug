@@ -17,7 +17,7 @@ Add the following entry to your `composer.json` `repositories` entry:
 
 Then run `composer require drupal/ref_debug`
 
-Please refer to this issue (link to be coming.)
+Please refer to [this issue](https://www.drupal.org/project/ref_debug/issues/2943078).
 
 # USAGE
 
