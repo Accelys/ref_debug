@@ -20,7 +20,6 @@ class RefDebug extends DevelDumperBase {
    * {@inheritdoc}
    */
   public function dump($input, $name = NULL) {
-    \Drupal::logger('file')->info(strtoupper(__METHOD__));
     echo (string) $this->export($input, $name);
   }
 
@@ -28,10 +27,8 @@ class RefDebug extends DevelDumperBase {
    * {@inheritdoc}
    */
   public function export($input, $name = NULL) {
-    \Drupal::logger('file')->info(strtoupper(__METHOD__));
     \ref::config('showBacktrace', TRUE);
     \ref::config('maxDepth', 3);
-    //\ref::config('shortcutFunc', ['r', 'rt', 'dpm']);
     \ref::config('shortcutFunc', ['dpm']);
     \ref::config('showStringMatches', FALSE);
 
@@ -49,7 +46,6 @@ class RefDebug extends DevelDumperBase {
       ],
     ];
     return ($render);
-    //return drupal_render($render);
   }
 
 
@@ -57,7 +53,6 @@ class RefDebug extends DevelDumperBase {
    * {@inheritdoc}
    */
   public function exportAsRenderable($input, $name = NULL) {
-    \Drupal::logger('default')->info(strtoupper(__METHOD__));
     return [
       'export' => [
         '#markup' => $this->export($input, $name),
